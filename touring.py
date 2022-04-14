@@ -45,7 +45,7 @@ class Logs(db.Model):
     token = db.Column(db.String(225), unique=True, nullable=True, primary_key=False)
     db.create_all()
 
-#curl -i http://127.0.0.1:7123/api/v1/users/create -X POST -H 'Content-Type: application/json' -d '{"username":"test", "password":"test"}'
+#curl -i http://127.0.0.1:7123/api/v1/users/create -X POST -H 'Content-Type: application/json' -d '{"username":19090023, "password":123}'
 @app.route("/api/v1/users/create", methods=["POST"])
 def create():
   username = request.json['username']
@@ -59,7 +59,7 @@ def create():
     'password' : password,
     })
 
-#curl -i http://127.0.0.1:7123/api/v1/users/login -X POST -H 'Content-Type: application/json' -d '{"username":"test", "password": "test"}'
+#curl -i http://127.0.0.1:7123/api/v1/users/login -X POST -H 'Content-Type: application/json' -d '{"username":19090023, "password": 123}'
 @app.route("/api/v1/users/login", methods=["POST"])
 def login():
   username = request.json['username']
@@ -79,7 +79,7 @@ def login():
     return jsonify({'msg': 'Login Failed'})
 
 # curl -i http://127.0.0.1:7123/api/v1/events/create -X POST -H 'Content-Type: application/json' -d '{
-# "event_creator":"test", "event_name": "touring merapi#1", "event_start_time": "'"$(date +%Y-%m-%dT%H:%M:%S)"'", "event_end_time":"'"$(date +%Y-%m-%dT%H:%M:%S)"'",
+# "event_creator":19090023, "event_name": "touring merapi#1", "event_start_time": "'"$(date +%Y-%m-%dT%H:%M:%S)"'", "event_end_time":"'"$(date +%Y-%m-%dT%H:%M:%S)"'",
 # "event_start_lat":"40, 04902984", "event_start_lng":"40, 0444584", "event_finish_lat":"42, 34902984", "event_finish_lng":"34, 64902984",
 # "created_at":"2022-11-04 08:00"}'
 @app.route("/api/v1/events/create", methods=["POST"])
@@ -111,7 +111,7 @@ def create_event():
       'event_finish_lng': event_finish_lng,
       })
 
-#curl -i http://127.0.0.1:7123/api/v1/events/log -X POST -H 'Content-Type: application/json' -d '{"username":"test", "event_name":"touring merapi#1", "log_lat":"40,530299", "log_lng":"44,530299", "created_at":"2022-11-04 08:00"}'
+#curl -i http://127.0.0.1:7123/api/v1/events/log -X POST -H 'Content-Type: application/json' -d '{"username":19090023, "event_name":"touring merapi#1", "log_lat":"40,530299", "log_lng":"44,530299", "created_at":"2022-11-04 08:00"}'
 @app.route("/api/v1/events/log", methods=["POST"])
 def log_event():
   username = request.json['username']
