@@ -1,10 +1,6 @@
 # 6C/19090023/Muchammad Nachirul Ichsan
 # 6C/19090063/Arwinda Laurisma
 
-#TEST LOGIN
-#19090023/123
-#19090063/123
-
 import os, random, string
 
 from flask import Flask
